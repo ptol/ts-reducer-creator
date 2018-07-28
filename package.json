@@ -1,0 +1,45 @@
+{
+  "name": "ts-reducer-creator",
+  "version": "0.1.0",
+  "description": "TypeScript strongly typed boilerplate-free reducer creator",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptol/ts-reducer-creator.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "ngrx",
+    "Redux"
+  ],
+  "author": "ptol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ptol/ts-reducer-creator/issues"
+  },
+  "homepage": "https://github.com/ptol/ts-reducer-creator#readme",
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "jest": "^23.4.1",
+    "prettier": "^1.13.7",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.14.0",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "rxjs": "^6.0.0"
+  }
+}

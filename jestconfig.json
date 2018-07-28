@@ -1,0 +1,9 @@
+{
+  "transform": {
+    "^.+\\.(t|j)sx?$": "ts-jest"
+  },
+  "testURL": "http://localhost/",
+  "testPathIgnorePatterns": ["/node_modules/", "/examples/"],
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+}
