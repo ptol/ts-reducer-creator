@@ -82,7 +82,6 @@ export function reducer(state = initialState, action: CounterActionsUnion): Stat
   }
 }
 
-
 const actionCreators = {
   increment: () => new Increment(),
   setValue: (payload: number) => new setValue(payload),
