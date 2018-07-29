@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es5",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "declaration": false,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
+    "outDir": "build",
+    "lib": ["es6", "dom"],
+    "baseUrl": "src",
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "ts-reducer-creator-react-example",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --hot --progress --color --port 3000"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "16.0.40",
+    "@types/react-dom": "16.0.4",
+    "@types/react-redux": "5.0.15",
+    "html-webpack-plugin": "^3.0.4",
+    "ts-loader": "^4.0.0",
+    "typescript": "^2.8.1",
+    "webpack": "^4.0.1",
+    "webpack-cleanup-plugin": "^0.5.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-observable": "^1.0.0",
+    "ts-reducer-creator": "github:ptol/ts-reducer-creator"
+  }
+}
