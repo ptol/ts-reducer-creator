@@ -17,7 +17,6 @@ interface CounterActions {
     setValue: number;
 }
 
-
 export const helpers = createHelpers<State, CounterActions>('Counter', initialState, {
     increment: (state) => {
         return {...state, value: state.value + 1}; // state has type State
@@ -27,6 +26,7 @@ export const helpers = createHelpers<State, CounterActions>('Counter', initialSt
     },
     useRemoteValue: state => state
 });
+
 export const counterReducer = helpers.reducer
 
 function getRemoteValue() {

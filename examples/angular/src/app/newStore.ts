@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect} from '@ngrx/effects';
 import {Action} from '@ngrx/store';
-import {Observable, of} from 'rxjs';
+import {of} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
 import {createHelpers} from 'ts-reducer-creator';
 
@@ -19,7 +19,6 @@ interface CounterActions {
   setValue: number;
 }
 
-
 export const helpers = createHelpers<State, CounterActions>('Counter', initialState, {
   increment: (state) => {
     return {...state, value: state.value + 1}; // state has type State
@@ -29,23 +28,21 @@ export const helpers = createHelpers<State, CounterActions>('Counter', initialSt
   },
   useRemoteValue: state => state
 });
-export const counterReducer = helpers.reducer
+export const counterReducer = helpers.reducer;
 
 function getRemoteValue() {
   return of(10);
 }
 
-
 @Injectable()
 export class CounterEffects {
   @Effect()
-	useRemoteValue$ = this.actions$.pipe(
-		helpers.ofTypeFilters.useRemoteValue,
-		mergeMap(action => getRemoteValue().pipe(map(x => helpers.actionCreators.setValue(x + action.payload))))
-	);
+  useRemoteValue$ = this.actions$.pipe(
+    helpers.ofTypeFilters.useRemoteValue,
+    mergeMap(action => getRemoteValue().pipe(map(x => helpers.actionCreators.setValue(x + action.payload))))
+  );
 
-
-	constructor(private actions$: Actions) {}
-	}
+  constructor(private actions$: Actions) { }
+}
 
 

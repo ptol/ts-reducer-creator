@@ -18,7 +18,6 @@ export enum CounterActionTypes {
     USE_REMOTE_VALUE = '[Counter] UseRemoteValue',
 }
 
-
 export class Increment implements Action {
     readonly type = CounterActionTypes.INCREMENT
 }

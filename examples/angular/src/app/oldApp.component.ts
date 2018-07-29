@@ -9,12 +9,12 @@ import {Increment, State, UseRemoteValue} from 'src/app/oldStore';
     <p>Value: {{ value$ | async }}</p>
     <button (click)="increment()">Increment</button>
     <button (click)="useRemoteValue()">Use remote value</button>
-  `,
+  `
 })
 export class OldAppComponent {
   value$: Observable<any>;
 
-  constructor(private store: Store<{counter: State}>) {
+  constructor(private store: Store<{ counter: State }>) {
     this.value$ = store.pipe(select(x => x.counter.value));
   }
 

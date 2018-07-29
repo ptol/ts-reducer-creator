@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {a} from '@angular/core/src/render3';
 import {Actions, Effect, ofType} from '@ngrx/effects';
-import { Action } from '@ngrx/store';
+import {Action} from '@ngrx/store';
 import {Observable, of} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
-
 
 export interface State {
   value: number;
@@ -12,7 +11,7 @@ export interface State {
 
 export const initialState: State = {
   value: 0
-}
+};
 
 export enum CounterActionTypes {
   INCREMENT = '[Counter] Increment',
@@ -26,18 +25,19 @@ export class Increment implements Action {
 
 export class UseRemoteValue implements Action {
   readonly type = CounterActionTypes.USE_REMOTE_VALUE;
-  constructor(public payload: number) {}
+
+  constructor(public payload: number) {
+  }
 }
 
 export class SetValue implements Action {
   readonly type = CounterActionTypes.SET_VALUE;
-  constructor(public payload: number) {}
+
+  constructor(public payload: number) {
+  }
 }
 
-
 export type CounterActionsUnion = Increment | SetValue | UseRemoteValue;
-
-
 
 export function counterReducer(state = initialState, action: CounterActionsUnion): State {
   switch (action.type) {
@@ -67,7 +67,8 @@ export class CounterEffects {
     mergeMap(action => getRemoteValue().pipe(map(x => new SetValue(x + action.payload))))
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions) {
+  }
 }
 
 

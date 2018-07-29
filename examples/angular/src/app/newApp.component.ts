@@ -9,12 +9,12 @@ import {helpers, State} from 'src/app/newStore';
     <p>Value: {{ value$ | async }}</p>
     <button (click)="increment()">Increment</button>
     <button (click)="setRemoteValue()">Set remote value</button>
-  `,
+  `
 })
 export class NewAppComponent {
   value$: Observable<number>;
 
-  constructor(private store: Store<{counter: State}>) {
+  constructor(private store: Store<{ counter: State }>) {
     this.value$ = store.pipe(select(x => x.counter.value));
   }
 

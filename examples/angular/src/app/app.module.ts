@@ -5,7 +5,6 @@ import {StoreModule} from '@ngrx/store';
 import {NewAppComponent} from 'src/app/newApp.component';
 import {CounterEffects, counterReducer} from 'src/app/newStore';
 
-
 @NgModule({
   declarations: [
     NewAppComponent
@@ -18,4 +17,5 @@ import {CounterEffects, counterReducer} from 'src/app/newStore';
   providers: [],
   bootstrap: [NewAppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
