@@ -97,7 +97,7 @@ interface CounterActions {
     setValue: number;
 }
 
-export const {reducer} = createHelpers<State, CounterActions>('Counter', initialState, {
+export const {reducer, actionCreators} = createHelpers<State, CounterActions>('Counter', initialState, {
     increment: (state) => {
         return {...state, value: state.value + 1}; 
     },
