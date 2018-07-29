@@ -9,7 +9,7 @@ export interface State {
 
 export const initialState: State = {
     value: 0
-};
+}
 
 interface CounterActions {
     useRemoteValue: number;
