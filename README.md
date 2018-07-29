@@ -1,3 +1,6 @@
+# Install
+`npm install ts-reducer-creator`
+
 # How to use
 
 First you need to define your actions and their payload types
