@@ -49,17 +49,11 @@ to create
 ```typescript
 export enum CounterActionTypes {
   INCREMENT = '[Counter] Increment',
-  SET_VALUE = '[Counter] SetValue',
-  USE_REMOTE_VALUE = '[Counter] UseRemoteValue',
+  SET_VALUE = '[Counter] SetValue'
 }
 
 export class Increment implements Action {
     readonly type = CounterActionTypes.INCREMENT;
-}
-
-export class UseRemoteValue implements Action {
-    readonly type = CounterActionTypes.USE_REMOTE_VALUE;
-    constructor(public payload: number) {}
 }
 
 export class SetValue implements Action {
@@ -67,7 +61,7 @@ export class SetValue implements Action {
     constructor(public payload: number) {}
 }
 
-export type CounterActionsUnion = Increment | SetValue | UseRemoteValue;
+export type CounterActionsUnion = Increment | SetValue;
 
 export function reducer(state = initialState, action: CounterActionsUnion): State {
   switch (action.type) {
