@@ -22,7 +22,7 @@ export type ActionCreator<TPayload> = TPayload extends void
   : (payload: TPayload) => Action<TPayload>
 
 export type ActionCreators<TActions> = {
-  [key in keyof TActions]: ActionCreator<TActions[key]>
+  [key in keyof TActions]: TActions[key] extends void ? () => Action<TActions[key]> : (payload: TActions[key]) => Action<TActions[key]>
 }
 
 export type ActionTypes<TActions> = {[key in keyof TActions]: string}
