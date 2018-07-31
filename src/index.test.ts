@@ -2,43 +2,36 @@ import {createHelpers} from "./index"
 
 interface State {
   value: number
-  maybeValue: number | null
+  boolValue: boolean
 }
 
 interface Actions {
   addValue: number
-  setValue: number | null
+  setBoolValue: boolean
 }
 
-const initialState: State = {value: 1, maybeValue: null}
+const initialState: State = {value: 1, boolValue: false}
 
 const helpers = createHelpers<State, Actions>("Foo", initialState, {
   addValue: (state, payload) => {
-    return {value: state.value + payload}
+    return {...state, value: state.value + payload}
   },
-  setValue: (state, payload) => {
-    return {maybeValue: payload}
+  setBoolValue: (state, payload) => {
+    return {...state, boolValue: payload}
   },
 })
 
 test("reducer", () => {
-  let newState = helpers.reducer(
+  const newState = helpers.reducer(
     undefined,
     helpers.actionCreators.addValue(100),
   )
   expect(newState.value).toBe(101)
 
-  newState = helpers.reducer(
-    undefined,
-    helpers.actionCreators.setValue(12),
-  )
-  expect(newState.maybeValue).toBe(12)
-
 })
 
 test("action type", () => {
-  expect(helpers.actionTypes.addValue).toBe("[Foo] addValue"),
-  expect(helpers.actionTypes.setValue).toBe("[Foo] setValue")
+  expect(helpers.actionTypes.addValue).toBe("[Foo] addValue")
 })
 
 test("action creator", () => {
@@ -46,13 +39,11 @@ test("action creator", () => {
     type: "[Foo] addValue",
     payload: 100,
   })
-  expect(helpers.actionCreators.setValue(12)).toEqual({
-    type: "[Foo] setValue",
-    payload: 12,
-  })
-  expect(helpers.actionCreators.setValue(null)).toEqual({
-    type: "[Foo] setValue",
-    payload: null,
-  })
+})
 
+test("boolean payload action creator", () => {
+  expect(helpers.actionCreators.setBoolValue(true)).toEqual({
+    type: "[Foo] setBoolValue",
+    payload: true,
+  })
 })

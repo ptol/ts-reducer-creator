@@ -17,12 +17,12 @@ export type ActionHandlers<TActions, TState> = {
   [key in keyof TActions]: ActionHandler<TState, TActions[key]>
 }
 
-export type ActionCreator<TPayload> = TPayload extends void
+export type ActionCreator<TPayload> = [TPayload] extends [void]
   ? () => Action<TPayload>
   : (payload: TPayload) => Action<TPayload>
 
 export type ActionCreators<TActions> = {
-  [key in keyof TActions]: TActions[key] extends void ? () => Action<TActions[key]> : (payload: TActions[key]) => Action<TActions[key]>
+  [key in keyof TActions]: ActionCreator<TActions[key]>
 }
 
 export type ActionTypes<TActions> = {[key in keyof TActions]: string}
