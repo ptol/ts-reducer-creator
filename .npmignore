@@ -1,5 +1,6 @@
 src
 examples
+.idea
 tsconfig.json
 tslint.json
 .prettierrc
