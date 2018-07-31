@@ -27,7 +27,6 @@ test("reducer", () => {
     helpers.actionCreators.addValue(100),
   )
   expect(newState.value).toBe(101)
-
 })
 
 test("action type", () => {

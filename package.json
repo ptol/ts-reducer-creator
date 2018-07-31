@@ -1,6 +1,6 @@
 {
   "name": "ts-reducer-creator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "TypeScript strongly typed boilerplate-free reducer creator",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
